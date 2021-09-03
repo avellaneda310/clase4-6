@@ -8,6 +8,9 @@ const port = process.env.PORT_SERVER || 4500;
 
 conectarDB();//llama a conectar
 
+//lectura/habilitar express.json
+app.use(express.json({ extend: true }));
+
 const home = require("./routes/home");
 const servicios = require("./routes/servicios");
 const posteos = require("./routes/posteos");
@@ -23,9 +26,7 @@ app.use("/", posteos);
 app.use("/api/usuario", usuarios);
 
 
-//lectura/habilitar express.json
 
-app.use(express.json({ extend: true }));
 
 app.listen(port, () =>{
     console.log(`servidor en port ${port}`)
